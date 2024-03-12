@@ -1,0 +1,30 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class CrearArchivoSelvin {
+    public static void main(String[] args) {
+        // Ruta donde se creará el archivo (puedes modificarla según tus necesidades)
+        String rutaArchivo = "selvin.txt";
+
+        try {
+            // Crear el objeto File para representar el archivo
+            File archivo = new File(rutaArchivo);
+
+            // Verificar si el archivo ya existe
+            if (archivo.exists()) {
+                System.out.println("El archivo ya existe.");
+            } else {
+                // Crear el archivo físicamente
+                archivo.createNewFile();
+
+                // Escribir el contenido en el archivo
+                writer.write("Escriba un programa que sea capaz de crear un archivo con el texto con su [nombre sin espacios] Ejemplo: jennerperez.txt, el cual contenga el texto de este numeral.");
+                System.out.println("El archivo se ha creado correctamente.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("No se pudo crear el archivo.");
+        }
+    }
+}
