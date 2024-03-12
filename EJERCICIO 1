@@ -1,0 +1,29 @@
+import java.io.File;
+
+public class ListarDirectoriosRecursivo {
+
+    // Función recursiva para listar directorios
+    public static void listarDirectorios(File ruta) {
+        if (ruta.isDirectory()) {
+            System.out.println("Directorio encontrado: " + ruta.getAbsolutePath());
+            File[] subdirectorios = ruta.listFiles();
+            if (subdirectorios != null) {
+                for (File subdirectorio : subdirectorios) {
+                    listarDirectorios(subdirectorio); // Llamada recursiva para subdirectorios
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Ingresa la ruta del directorio aquí
+        String rutaUsuario = "C:\\ruta\\a\\tu\\directorio";
+
+        File rutaCompleta = new File(rutaUsuario);
+        if (rutaCompleta.exists()) {
+            listarDirectorios(rutaCompleta);
+        } else {
+            System.out.println("La ruta especificada no existe.");
+        }
+    }
+}
